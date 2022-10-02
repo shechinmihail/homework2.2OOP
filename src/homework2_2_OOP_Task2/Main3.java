@@ -22,6 +22,7 @@ public class Main3 {
         bouquetCost(commonRose, commonRose, commonRose, chrysanthemum, chrysanthemum, chrysanthemum, chrysanthemum,
                 chrysanthemum, gypsophila);
     }
+
     public static void bouquetCost(Flower... flowers) {
         int minlifeSpan = Integer.MAX_VALUE;
         double summ = 0;

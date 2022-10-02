@@ -43,7 +43,7 @@ public class Main2 {
                         + ", регистрационный номер " + car.getRegistrationNumber() + ", количество мест " + car.getNumberOfSeats() +
                         ", резина " + (car.isSummerTires() ? "Летняя" : "Зимняя")
                         + (car.getKey().isKeylessEntry() ? "Бесключевой доступ" : "ключевой доступ")
-                        + (car.getKey().isRemoteEngineStart()? "удалённый запуск двигателя": "обычный запуск двигателя")
+                        + (car.getKey().isRemoteEngineStart() ? "удалённый запуск двигателя" : "обычный запуск двигателя")
                         + " Дата окончания страховки " + car.getInsurance().getValidUntil() + " Стоимость страховки "
                         + car.getInsurance().getCost() + " Номер страховки " + car.getInsurance().getInsuranceNumber());
     }
