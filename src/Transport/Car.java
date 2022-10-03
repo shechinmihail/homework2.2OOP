@@ -1,59 +1,28 @@
 package Transport;
 
-
 import java.time.LocalDate;
 
-public class Car {
+public class Car extends Transport {
 
-    private final String brand;
-    private final String model;
     double engineVolume;
-    String color;
-    private final int productionYear;
-    private final String productionCountry;
     private String transmission;
     private final String bodyType;
     private String registrationNumber;
     private final int numberOfSeats;
     private boolean summerTires;
-
     private Key key;
-
     private Insurance insurance;
 
-    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry,
+    public Car(String brand, String model, double engineVolume, String bodyColor, int productionYear, String productionCountry,
                String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires, Key key,
                Insurance insurance) {
-        if (brand == null) {
-            this.brand =
-                    "default";
-        } else {
-            this.brand = brand;
-        }
-        if (model == null) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
+        super(brand, model, productionYear, productionCountry, bodyColor);
+
+
         if (engineVolume == 0) {
             this.engineVolume = 1.5;
         } else {
             this.engineVolume = engineVolume;
-        }
-        if (color == null) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
-        if (productionYear == 0) {
-            this.productionYear = 2000;
-        } else {
-            this.productionYear = productionYear;
-        }
-        if (productionCountry == null) {
-            this.productionCountry = "default";
-        } else {
-            this.productionCountry = productionCountry;
         }
         if (transmission == null || transmission.isEmpty() || transmission.isBlank()) {
             this.transmission = "default";
@@ -87,29 +56,11 @@ public class Car {
         } else {
             this.insurance = insurance;
         }
-
-
     }
 
     public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry) {
         this(brand, model, engineVolume, color, productionYear, productionCountry, "МКПП", "Седан",
                 "х000хх000", 5, true, new Key(), new Insurance());
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
     }
 
     public String getBodyType() {
@@ -126,14 +77,6 @@ public class Car {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getTransmission() {
@@ -205,6 +148,13 @@ public class Car {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Если у твоего автомобиля двигатель бензиновый, то заправляй 95-м бензином");
+        System.out.println("Если у твоего автомобиля двигатель дизельный, то заправляй дизельным топливом");
+        System.out.println("Если ты богат и купил электроавтомобиль, то бери удлинитель и заряжайся где хочешб))");
     }
 
     public static class Key {
